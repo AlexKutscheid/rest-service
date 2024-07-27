@@ -1,0 +1,4 @@
+org\example\restservice\PersonResource.class
+org\example\restservice\ApplicationConfig.class
+org\example\restservice\PersonObject.class
+org\example\restservice\PersonService.class
