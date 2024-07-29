@@ -13,7 +13,6 @@ class PersonServiceTest {
 
     @BeforeEach
     void setUp() {
-        // Initialize the PersonService before each test
         personService = new PersonService();
     }
 
@@ -36,7 +35,7 @@ class PersonServiceTest {
         IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
                 () -> personService.createPerson(person),
-                "Expected createPerson() to throw, but it didn't"
+                "Expected throw"
         );
 
         assertTrue(thrown.getMessage().contains("Last name must be between 3 and 20 characters"));
@@ -50,7 +49,7 @@ class PersonServiceTest {
         IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
                 () -> personService.createPerson(person),
-                "Expected createPerson() to throw, but it didn't"
+                "Expected throw"
         );
 
         assertTrue(thrown.getMessage().contains("Last name must be between 3 and 20 characters"));
@@ -61,7 +60,6 @@ class PersonServiceTest {
         String longFirstName = "A".repeat(21); // creates a string with 21 'A's
         PersonObject person = new PersonObject(1, "Kutscheid", longFirstName, LocalDate.of(1996, 6, 11));
 
-        // Assuming the first name length check is enforced in your createPerson method
         PersonObject createdPerson = personService.createPerson(person);
 
         assertNotNull(createdPerson);
@@ -75,7 +73,7 @@ class PersonServiceTest {
         IllegalArgumentException thrown = assertThrows(
                 IllegalArgumentException.class,
                 () -> personService.createPerson(person),
-                "Expected createPerson() to throw, but it didn't"
+                "Expected throw"
         );
 
         assertTrue(thrown.getMessage().contains("Date of birth cannot be in the future"));

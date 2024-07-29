@@ -17,7 +17,7 @@ public class PersonService {
 
         try {
             transaction.begin();
-            entityManager.persist(person); // Persist the new entity
+            entityManager.persist(person);
             transaction.commit();
         } catch (Exception e) {
             if (transaction.isActive()) {
@@ -37,7 +37,7 @@ public class PersonService {
 
         try {
             transaction.begin();
-            PersonObject updatedPerson = entityManager.merge(person); // Merge the entity
+            PersonObject updatedPerson = entityManager.merge(person);
             transaction.commit();
             return updatedPerson;
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class PersonService {
             transaction.begin();
             PersonObject personToRemove = entityManager.find(PersonObject.class, person.getId());
             if (personToRemove != null) {
-                entityManager.remove(personToRemove); // Remove the entity
+                entityManager.remove(personToRemove);
             }
             transaction.commit();
         } catch (Exception e) {

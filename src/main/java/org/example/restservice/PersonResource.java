@@ -14,7 +14,6 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createPerson(PersonObject person) {
 
-        // Validate the person object
         String validationError = validatePerson(person);
         if (validationError != null) {
             return Response.status(Response.Status.BAD_REQUEST).entity(validationError).build();
@@ -49,6 +48,6 @@ public class PersonResource {
         if (person.getDateOfBirth() == null || person.getDateOfBirth().isAfter(LocalDate.now())) {
             return "Date of birth cannot be in the future.";
         }
-        return null; // No validation errors
+        return null;
     }
 }
